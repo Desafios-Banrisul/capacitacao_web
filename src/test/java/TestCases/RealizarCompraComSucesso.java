@@ -1,6 +1,6 @@
 package TestCases;
 
-import Framework.Browser.TestBase;
+import Framework.TestBase;
 import Tasks.HomeTask;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;

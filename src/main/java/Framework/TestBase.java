@@ -1,5 +1,8 @@
-package Framework.Browser;
+package Framework;
 
+import Framework.Browser.DriverManager;
+import Framework.Browser.TypeBrowser;
+import Framework.Utils.FilesOperation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
@@ -8,7 +11,7 @@ import java.io.IOException;
 
 public class TestBase extends DriverManager {
     private static WebDriver driver;
-    private String URL = "https://www.saucedemo.com/";
+    private  static FilesOperation filesOperation = new FilesOperation();
 
     public WebDriver getDriver(){
         driver = getDriver(TypeBrowser.CHROME);
@@ -17,6 +20,7 @@ public class TestBase extends DriverManager {
 
     @BeforeEach
     public void setUp() throws IOException {
+        String URL = filesOperation.getProperties("url").getProperty("url");
         getDriver().get(URL);
     }
 

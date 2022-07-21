@@ -22,7 +22,7 @@ public class HomePage {
         return waits.visibilityOfElement(By.id("password"));
     }
 
-    public WebElement getLoginButton(){
+    public WebElement getLoginButton() {
         return waits.visibilityOfElement(By.id("login-button"));
     }
 

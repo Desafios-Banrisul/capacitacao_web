@@ -18,4 +18,10 @@ public class HomeTask {
         homePage.getPasswordTextField().sendKeys("secret_sauce");
         homePage.getLoginButton();
     }
+
+    public void efetuarLoginParametrizado(String user, String password){
+        homePage.getUserNameTextField().sendKeys("standard_user");
+        homePage.getPasswordTextField().sendKeys("secret_sauce");
+        homePage.getLoginButton();
+    }
 }

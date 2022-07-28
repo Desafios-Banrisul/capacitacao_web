@@ -11,8 +11,8 @@ import java.io.File;
 
 public class ReportFactory {
     public static WebDriver driver;
-    private static final String PATH_REPORT = System.getProperty("user.dir") + File.separator + "Report" +
-            File.separator + "Report_" + DateTime.getDateTimeFormatReport();
+    public static final String PATH_REPORT = System.getProperty("user.dir") + File.separator + "Report" + File.separator +
+            "Report_" + DateTime.getDateTimeFormatReport();
 
     public static ExtentSparkReporter extentSparkReporter;
     public static ExtentReports extentReports;
@@ -26,8 +26,10 @@ public class ReportFactory {
         extentSparkReporter.config().setTheme(Theme.DARK);
         extentSparkReporter.config().setEncoding("UTF-8");
         extentSparkReporter.config().setTimeStampFormat("EEEE, MMMM dd, yyyy, hh:mm a '('zzz')'");
-        extentSparkReporter.config().setCss(".nav-wrapper { background-color: #1E317A !important; } .brand-logo { background-color: #1E317A !important; padding: 0 10px 0 0 !important; margin: 0 !important; position: absolute !important } .report-name { margin-left: 80px !important } .blue.darken-3 { background-color: #1E317A !important; color: #FFF !important;}");
-        extentSparkReporter.config().setJs("$('.brand-logo').html('<img src=\"https://i.imgur.com/qDYwkD2.png\" class=\"db-logo\"/>');");
+        extentSparkReporter.config().setCss(".nav-wrapper { background-color: #4B0082 !important; } .nav-logo{margin-top: 10px;}.brand-logo { background-color: #4B0082 !important; padding: 0 10px 0 0 !important; margin: 0 !important; position: absolute !important } .report-name { margin-left: 80px !important } .blue.darken-3 { background-color:#4B0082 !important; color: #FFF !important;}");
+        extentSparkReporter.config().setJs("$('.nav-logo').html('<img src=\"https://i.imgur.com/AjZ89lJ.png\" class=\"db-logo\"/>');");
+        ;
+
 
         extentReports = new ExtentReports();
         extentReports.attachReporter(extentSparkReporter);

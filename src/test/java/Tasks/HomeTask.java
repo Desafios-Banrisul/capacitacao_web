@@ -1,27 +1,36 @@
 package Tasks;
 
 import PageObjects.HomePage;
-import org.junit.jupiter.api.Test;
+import Validations.GenericValidation;
+import Validations.LoginValidation;
 import org.openqa.selenium.WebDriver;
 
 public class HomeTask {
     private static WebDriver driver;
     private static HomePage homePage;
+    private LoginValidation loginValidation;
+    private GenericValidation genericValidation;
 
     public HomeTask (WebDriver driver){
         this.driver = driver;
         homePage = new HomePage(this.driver);
+        loginValidation = new LoginValidation(driver);
+        genericValidation = new GenericValidation(this.driver);
     }
 
     public void efetuarLogin(){
+        loginValidation.validationLoginPage();
         homePage.getUserNameTextField().sendKeys("standard_user");
         homePage.getPasswordTextField().sendKeys("secret_sauce");
-        homePage.getLoginButton();
+        homePage.getLoginButton().click();
+        genericValidation.validationPageProducts();
     }
 
     public void efetuarLoginParametrizado(String user, String password){
-        homePage.getUserNameTextField().sendKeys("standard_user");
-        homePage.getPasswordTextField().sendKeys("secret_sauce");
-        homePage.getLoginButton();
+        loginValidation.validationLoginPage();
+        homePage.getUserNameTextField().sendKeys(user);
+        homePage.getPasswordTextField().sendKeys(password);
+        homePage.getLoginButton().click();
+        genericValidation.validationPageProducts();
     }
 }

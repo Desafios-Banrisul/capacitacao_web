@@ -1,7 +1,11 @@
 package TestCases;
 
+import Framework.Report.Report;
+import Framework.Report.ReportType;
+import Framework.Report.Screenshot;
 import Framework.TestBase;
 import Tasks.HomeTask;
+import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
@@ -16,6 +20,13 @@ public class RealizarCompraComSucessoDataClass extends TestBase {
     @ParameterizedTest
     @MethodSource("Framework.Utils.DataClass#loginTestData")
     public void realizarCompraComSucesso(String user, String password){
+
+        try {
+            Report.creatTest("Realizar compra com sucesso", ReportType.SINGLE);
         homeTask.efetuarLoginParametrizado(user, password);
+
+        }catch (Exception e){
+            Report.log(Status.FAIL, e.getMessage(), Screenshot.capture(driver));
+        }
     }
 }

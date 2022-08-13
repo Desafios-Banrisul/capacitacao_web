@@ -2,6 +2,7 @@ package Framework;
 
 import Framework.Browser.DriverManager;
 import Framework.Browser.TypeBrowser;
+import Framework.Report.Report;
 import Framework.Utils.FilesOperation;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +26,8 @@ public class TestBase extends DriverManager {
     }
 
     @AfterEach
-    public void encerraDriver(){
+    public void finish(){
+        Report.close();
         quitDriver();
     }
 }

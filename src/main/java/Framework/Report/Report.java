@@ -21,7 +21,7 @@ public class Report {
         parentTest.set(extentTest);
     }
 
-    public static void creatStep(String stepName){
+    public static void createStep(String stepName){
         try {
             ExtentTest child = parentTest.get().createNode(stepName);
             test.set(child);

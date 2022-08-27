@@ -67,4 +67,28 @@ public class GenericValidation {
             Report.log(Status.FAIL, e.getMessage(), Screenshot.captureBase64(driver));
         }
     }
+
+    public void validationPageCheckoutOverview(){
+        try{
+            waits.loadElement(genericPage.getHomeLabelText());
+            String label = genericPage.getHomeLabelText().getText();
+            Assertions.assertEquals(label, "CHECKOUT: OVERVIEW");
+            Report.log(Status.PASS, " Acessou a pagina de Checkout Overview com sucesso", Screenshot.captureBase64(driver));
+
+        }catch (Exception e){
+            Report.log(Status.FAIL, e.getMessage(), Screenshot.captureBase64(driver));
+        }
+    }
+
+    public void validationPageFinish(){
+        try{
+            waits.loadElement(genericPage.getHomeLabelText());
+            String label = genericPage.getHomeLabelText().getText();
+            Assertions.assertEquals(label, "CHECKOUT: COMPLETE!");
+            Report.log(Status.PASS, " Acessou a pagina de Finalização da compra com sucesso", Screenshot.captureBase64(driver));
+
+        }catch (Exception e){
+            Report.log(Status.FAIL, e.getMessage(), Screenshot.captureBase64(driver));
+        }
+    }
 }
